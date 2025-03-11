@@ -103,6 +103,34 @@ public class App {
         
     }
     public static void main(String[] args) {
-        
+        for (int tamanho : tamanhosTesteGrande) {
+            int[] vetor = gerarVetor(tamanho);
+
+            long startTime = System.nanoTime();
+            int resultado1 = codigo1(vetor);
+            long endTime = System.nanoTime();
+            System.out.println("codigo1 - Tamanho: " + tamanho + ", Resultado: " + resultado1 + ", Tempo: " + (endTime - startTime) + " ns");
+
+            startTime = System.nanoTime();
+            int resultado2 = codigo2(vetor);
+            endTime = System.nanoTime();
+            System.out.println("codigo2 - Tamanho: " + tamanho + ", Resultado: " + resultado2 + ", Tempo: " + (endTime - startTime) + " ns");
+        }
+
+        for (int tamanho : tamanhosTesteMedio) {
+            int[] vetor = gerarVetor(tamanho);
+
+            long startTime = System.nanoTime();
+            codigo3(vetor);
+            long endTime = System.nanoTime();
+            System.out.println("codigo3 - Tamanho: " + tamanho + ", Tempo: " + (endTime - startTime) + " ns");
+        }
+
+        for (int n : tamanhosTestePequeno) {
+            long startTime = System.nanoTime();
+            int resultado4 = codigo4(n);
+            long endTime = System.nanoTime();
+            System.out.println("codigo4 - n: " + n + ", Resultado: " + resultado4 + ", Tempo: " + (endTime - startTime) + " ns");
+        }
     }
 }
